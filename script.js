@@ -1,4 +1,3 @@
-
 /* =========================================
    IMAGE FILES
    EDIT THIS SECTION TO USE YOUR OWN ART
@@ -571,4 +570,3 @@ window.addEventListener("resize", () => {
 buildBouquet();
 
 buildSelector();
-
