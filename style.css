@@ -1,573 +1,721 @@
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #373b32;
+  --muted: #77786d;
+
+  --vase: #dba69a;
+  --vase-line: #a9786c;
+
+  font-family: "DM Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: hidden;
+  transition: background 700ms ease;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+.site-shell {
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+}
+
 
 /* =========================================
-   IMAGE FILES
-   EDIT THIS SECTION TO USE YOUR OWN ART
-======================================= */
+   PAGE / VIEW TRANSITIONS
+========================================= */
 
-const imageFiles = {
-  vase: "images/vase.png",
+.view {
+  min-height: 100svh;
+  width: 100%;
 
-  flowers: {
-    about: "images/daisy.png",
-    projects: "images/rose.png",
-    experience: "images/tulip.png",
-    achievements: "images/sunflower.png",
-    creative: "images/poppy.png"
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 550ms ease,
+    visibility 550ms;
+}
+
+.view.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  position: relative;
+}
+
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+.top-note,
+.bottom-note {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.top-note {
+  margin: 25px 0 0;
+}
+
+.bottom-note {
+  margin: auto 20px 25px;
+  padding-top: 25px;
+}
+
+.intro-copy {
+  text-align: center;
+  margin-top: clamp(35px, 6vh, 65px);
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-size: 10px;
+  margin: 0 0 13px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+.intro-copy h1 {
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: .98;
+  letter-spacing: -2.5px;
+  margin: 0;
+}
+
+.intro-copy h1 em,
+.selector-heading h2 em {
+  color: #b8756e;
+  font-weight: 500;
+}
+
+.intro-subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+
+/* =========================================
+   OPENING BOUQUET
+========================================= */
+
+.bouquet-scene {
+  width: min(760px, 98vw);
+  height: 650px;
+  position: relative;
+  margin-top: 0;
+}
+
+.bouquet-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Every flower illustration */
+
+.bouquet-flower {
+  position: absolute;
+
+  width: 175px;
+  height: 350px;
+
+  left: 50%;
+  top: 75px;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform-origin: 50% 90%;
+
+  transition:
+    transform 800ms cubic-bezier(.2,.75,.2,1),
+    opacity 450ms ease;
+}
+
+/* Flower positions */
+
+.bouquet-flower:nth-child(1) {
+  transform: translateX(-50%) rotate(-30deg);
+  margin-left: -190px;
+  margin-top: 5px;
+}
+
+.bouquet-flower:nth-child(2) {
+  transform: translateX(-50%) rotate(-14deg);
+  margin-left: -95px;
+  margin-top: -20px;
+}
+
+.bouquet-flower:nth-child(3) {
+  transform: translateX(-50%) rotate(2deg);
+  margin-left: 0;
+  margin-top: -35px;
+}
+
+.bouquet-flower:nth-child(4) {
+  transform: translateX(-50%) rotate(17deg);
+  margin-left: 95px;
+  margin-top: -15px;
+}
+
+.bouquet-flower:nth-child(5) {
+  transform: translateX(-50%) rotate(32deg);
+  margin-left: 190px;
+  margin-top: 10px;
+}
+
+
+/* =========================================
+   VASE BUTTONS
+========================================= */
+
+.vase-button {
+  position: absolute;
+
+  border: 0;
+  background: transparent;
+  padding: 0;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vase-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main-vase {
+  width: 290px;
+  height: 310px;
+
+  left: 50%;
+  bottom: 12px;
+
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.main-vase:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.vase-hint {
+  position: absolute;
+
+  left: 50%;
+  bottom: -16px;
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+
+  opacity: .85;
+}
+
+.main-vase .vase-hint {
+  bottom: 5px;
+}
+
+.vase-button:focus-visible,
+.flower-choice:focus-visible,
+.section-bouquet:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 7px;
+  border-radius: 45%;
+}
+
+
+/* =========================================
+   FLOWER SELECTOR
+========================================= */
+
+.selector-heading {
+  text-align: center;
+  margin-top: clamp(55px, 10vh, 100px);
+  padding: 0 20px;
+}
+
+.selector-heading h2 {
+  font-size: clamp(34px, 5vw, 54px);
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.selector-heading > p:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 13px;
+}
+
+.flower-orbit {
+  width: min(760px, 96vw);
+  height: min(650px, 78vw);
+  min-height: 480px;
+
+  position: relative;
+  margin: 5px auto 0;
+}
+
+/* Clickable flower images */
+
+.flower-choice {
+  position: absolute;
+
+  width: 140px;
+  height: 190px;
+
+  border: 0;
+  padding: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.25)
+    rotate(-35deg);
+
+  transition:
+    left 850ms cubic-bezier(.18,.8,.2,1),
+    top 850ms cubic-bezier(.18,.8,.2,1),
+    opacity 450ms ease,
+    transform 850ms cubic-bezier(.18,.8,.2,1);
+
+  z-index: 2;
+}
+
+.flower-choice img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  transition: transform 250ms ease;
+}
+
+.flower-choice.is-spread {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1)
+    rotate(0);
+}
+
+.flower-choice:hover {
+  z-index: 5;
+}
+
+.flower-choice:hover img {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+.flower-name {
+  position: absolute;
+
+  top: 100%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ink);
+
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.flower-choice:hover .flower-name,
+.flower-choice:focus-visible .flower-name {
+  opacity: 1;
+}
+
+
+/* Empty vase in the center */
+
+.empty-vase {
+  width: 145px;
+  height: 155px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  opacity: 1;
+}
+
+.empty-vase:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+
+/* =========================================
+   INDIVIDUAL PORTFOLIO PAGES
+========================================= */
+
+.portfolio-view {
+  padding: 65px 6vw 0;
+}
+
+.section-bouquet {
+  position: relative;
+
+  width: 240px;
+  height: 285px;
+
+  border: 0;
+  background: transparent;
+  padding: 0;
+
+  cursor: pointer;
+  flex: 0 0 auto;
+
+  margin: 8px auto 12px;
+
+  animation: centerpiece-in 750ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Selected flower */
+
+.section-flower-art {
+  position: absolute;
+
+  width: 165px;
+  height: 235px;
+
+  left: 37px;
+  top: 0;
+
+  object-fit: contain;
+  object-position: center;
+
+  z-index: 2;
+}
+
+/* Vase sits in front of the flower stem */
+
+.section-vase-art {
+  position: absolute;
+
+  width: 220px;
+  height: 230px;
+
+  left: 10px;
+  bottom: 0;
+
+  object-fit: contain;
+
+  z-index: 3;
+}
+
+.section-bouquet .vase-hint {
+  bottom: -5px;
+}
+
+.section-bouquet:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes centerpiece-in {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(.75);
   }
-};
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 
-/* =========================================
-   PORTFOLIO FLOWER INFORMATION
-========================================= */
+/* Portfolio content */
 
-const flowerData = [
+.portfolio-content {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
 
-  {
-    id: "about",
-    name: "Daisy",
-    image: imageFiles.flowers.about,
+.portfolio-header {
+  text-align: center;
+  margin: 5px auto 34px;
+}
 
-    background: "#f6e9e4",
+.portfolio-header h2 {
+  font-size: clamp(38px, 6vw, 66px);
+  margin: 0;
+  letter-spacing: -1.5px;
+}
 
-    eyebrow: "The person behind the work",
-    title: "A little about me",
+.section-description {
+  max-width: 620px;
+  margin: 13px auto 0;
 
-    description:
-      "A starting point for the story behind this portfolio: the interests, experiences, and little details that make up who I am.",
-
-    cards: [
-      [
-        "A quick introduction",
-        "A little context about who I am, where I come from, and what I enjoy creating."
-      ],
-      [
-        "Curiosity cabinet",
-        "The subjects, ideas, and unexpected things that tend to catch my attention."
-      ],
-      [
-        "Outside the screen",
-        "A place for the activities, communities, and experiences that shape my perspective."
-      ],
-      [
-        "What I'm growing toward",
-        "The things I hope to explore, learn, and make next."
-      ]
-    ]
-  },
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
 
 
-  {
-    id: "projects",
-    name: "Rose",
-    image: imageFiles.flowers.projects,
+/* Portfolio cards */
 
-    background: "#f4e5e1",
+.portfolio-grid {
+  display: grid;
 
-    eyebrow: "Ideas made tangible",
-    title: "Things I've created",
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
 
-    description:
-      "A collection of experiments, designs, websites, and other projects, from the first idea to the finished result.",
+  width: min(800px, 100%);
+  margin: 0 auto 35px;
+}
 
-    cards: [
-      [
-        "Web and digital design",
-        "Website concepts, layouts, and digital experiences built around both function and visual identity."
-      ],
-      [
-        "Creative experiments",
-        "Small tests, visual explorations, and ideas that became something more."
-      ],
-      [
-        "The process",
-        "Research, drafts, revisions, and the decisions that helped each project take shape."
-      ],
-      [
-        "Selected work",
-        "A space for project images, links, and short explanations of the finished pieces."
-      ]
-    ]
-  },
+.portfolio-card {
+  min-height: 150px;
 
+  padding: 25px 27px;
 
-  {
-    id: "experience",
-    name: "Tulip",
-    image: imageFiles.flowers.experience,
+  background: #fff9;
+  border: 1px solid #45463818;
+  border-radius: 3px;
 
-    background: "#f5eedf",
+  animation: card-in 550ms ease both;
+}
 
-    eyebrow: "Places I've learned and contributed",
-    title: "My experience",
+.portfolio-card:nth-child(2) {
+  animation-delay: 80ms;
+}
 
-    description:
-      "A look at the roles, collaborations, and opportunities that have helped me develop new skills and perspectives.",
+.portfolio-card:nth-child(3) {
+  animation-delay: 160ms;
+}
 
-    cards: [
-      [
-        "Work and internships",
-        "A timeline of professional experiences, responsibilities, and what I took away from them."
-      ],
-      [
-        "School and leadership",
-        "Clubs, teams, publications, and the communities I've helped build."
-      ],
-      [
-        "Collaboration",
-        "The people I've worked with and the projects that were better because we made them together."
-      ],
-      [
-        "Skills in practice",
-        "Examples of how I've used communication, design, technology, and creative problem-solving."
-      ]
-    ]
-  },
+.portfolio-card:nth-child(4) {
+  animation-delay: 240ms;
+}
 
+.portfolio-card .card-kicker {
+  color: var(--muted);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-  {
-    id: "achievements",
-    name: "Sunflower",
-    image: imageFiles.flowers.achievements,
+.portfolio-card h3 {
+  font-size: 22px;
+  margin: 12px 0 8px;
+}
 
-    background: "#f5efd9",
+.portfolio-card p {
+  color: #696b60;
+  font-size: 12px;
+  line-height: 1.75;
+}
 
-    eyebrow: "Milestones along the way",
-    title: "Things I've accomplished",
-
-    description:
-      "A growing collection of recognitions, milestones, and moments that mark progress along the way.",
-
-    cards: [
-      [
-        "Awards and recognition",
-        "Selected competitions, honors, and achievements worth highlighting."
-      ],
-      [
-        "Certifications",
-        "Credentials and technical skills I've worked toward and earned."
-      ],
-      [
-        "Academic milestones",
-        "Coursework, programs, and learning experiences that have challenged me."
-      ],
-      [
-        "Community contributions",
-        "Volunteer work and ways I've contributed time, ideas, and effort."
-      ]
-    ]
-  },
-
-
-  {
-    id: "creative",
-    name: "Poppy",
-    image: imageFiles.flowers.creative,
-
-    background: "#f4e8ef",
-
-    eyebrow: "A place for the in-between",
-    title: "My creative side",
-
-    description:
-      "Not everything fits into a neat category. This space is for visual ideas, writing, inspiration, and the things I make just to see where they go.",
-
-    cards: [
-      [
-        "Visual inspiration",
-        "Color, typography, illustration, and the images that spark new directions."
-      ],
-      [
-        "Words and stories",
-        "Writing, storytelling, and experiments with different ways to communicate."
-      ],
-      [
-        "Moodboards and concepts",
-        "Early ideas and visual directions that might turn into something bigger."
-      ],
-      [
-        "Just because",
-        "Personal experiments and creative detours that deserve a place of their own."
-      ]
-    ]
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
 
-];
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-
-/* =========================================
-   PAGE ELEMENTS
-========================================= */
-
-const bouquetView = document.querySelector("#bouquetView");
-const selectorView = document.querySelector("#selectorView");
-const portfolioView = document.querySelector("#portfolioView");
-
-const bouquetFlowers = document.querySelector("#bouquetFlowers");
-const flowerOrbit = document.querySelector("#flowerOrbit");
-
-const portfolioGrid = document.querySelector("#portfolioGrid");
-
-const sectionFlowerArt = document.querySelector("#sectionFlowerArt");
-
-const sectionEyebrow = document.querySelector("#sectionEyebrow");
-const sectionTitle = document.querySelector("#sectionTitle");
-const sectionDescription = document.querySelector("#sectionDescription");
-
-let currentView = "bouquet";
-let resizeTimer;
-
-
-/* =========================================
-   CREATE IMAGE ELEMENTS
-========================================= */
-
-function createFlowerImage(flower, className) {
-
-  const image = document.createElement("img");
-
-  image.src = flower.image;
-  image.alt = "";
-  image.className = className;
-
-  image.draggable = false;
-
-  image.onerror = () => {
-    console.error(
-      `Could not find flower image: ${flower.image}`
-    );
-  };
-
-  return image;
+.portfolio-view .bottom-note {
+  margin-top: 10px;
 }
 
 
 /* =========================================
-   SWITCH BETWEEN VIEWS
+   MOBILE RESPONSIVENESS
 ========================================= */
 
-function setView(nextView) {
+@media (max-width: 650px) {
 
-  currentView = nextView;
+  .intro-copy {
+    margin-top: 45px;
+  }
 
-  document.body.dataset.view = nextView;
+  .bouquet-scene {
+    width: 100%;
+    height: 510px;
+    margin-top: 10px;
+  }
 
-  const views = [
-    [bouquetView, "bouquet"],
-    [selectorView, "selector"],
-    [portfolioView, "portfolio"]
-  ];
+  .main-vase {
+    width: 220px;
+    height: 235px;
+    bottom: 12px;
+  }
 
-  views.forEach(([element, name]) => {
+  .bouquet-flower {
+    width: 112px;
+    height: 245px;
+    top: 85px;
+  }
 
-    const active = name === nextView;
+  .bouquet-flower:nth-child(1) {
+    margin-left: -115px;
+    margin-top: 0;
+  }
 
-    element.classList.toggle("is-active", active);
+  .bouquet-flower:nth-child(2) {
+    margin-left: -57px;
+    margin-top: -15px;
+  }
 
-    element.setAttribute(
-      "aria-hidden",
-      String(!active)
-    );
+  .bouquet-flower:nth-child(3) {
+    margin-left: 0;
+    margin-top: -25px;
+  }
 
-  });
+  .bouquet-flower:nth-child(4) {
+    margin-left: 57px;
+    margin-top: -10px;
+  }
 
+  .bouquet-flower:nth-child(5) {
+    margin-left: 115px;
+    margin-top: 5px;
+  }
+
+
+  /* Flower selector */
+
+  .selector-heading {
+    margin-top: 55px;
+  }
+
+  .flower-orbit {
+    width: 100vw;
+    height: 480px;
+    min-height: 480px;
+    margin-top: 0;
+  }
+
+  .flower-choice {
+    width: 92px;
+    height: 135px;
+  }
+
+  .empty-vase {
+    width: 100px;
+    height: 115px;
+  }
+
+
+  /* Portfolio section */
+
+  .portfolio-view {
+    padding: 35px 18px 0;
+  }
+
+  .section-bouquet {
+    width: 210px;
+    height: 250px;
+    margin-top: 0;
+    margin-bottom: -10px;
+  }
+
+  .section-flower-art {
+    width: 145px;
+    height: 205px;
+    left: 32px;
+  }
+
+  .section-vase-art {
+    width: 195px;
+    height: 205px;
+    left: 8px;
+  }
+
+  .portfolio-header {
+    margin-bottom: 25px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .portfolio-card {
+    min-height: 125px;
+    padding: 21px;
+  }
 }
 
 
 /* =========================================
-   BUILD THE INITIAL BOUQUET
+   ACCESSIBILITY
 ========================================= */
 
-function buildBouquet() {
+@media (prefers-reduced-motion: reduce) {
 
-  bouquetFlowers.innerHTML = "";
-
-  flowerData.forEach((flower, index) => {
-
-    const image = createFlowerImage(
-      flower,
-      "bouquet-flower"
-    );
-
-    image.dataset.flowerIndex = index;
-
-    bouquetFlowers.appendChild(image);
-
-  });
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
 
 }
-
-
-/* =========================================
-   BUILD THE CIRCULAR FLOWER SELECTOR
-========================================= */
-
-function buildSelector() {
-
-  // Remove old flowers without removing the empty vase.
-
-  flowerOrbit.querySelectorAll(".flower-choice")
-    .forEach(button => button.remove());
-
-
-  flowerData.forEach((flower, index) => {
-
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "flower-choice";
-
-    button.setAttribute(
-      "aria-label",
-      `Explore ${flower.name}: ${flower.title}`
-    );
-
-
-    const image = createFlowerImage(
-      flower,
-      "flower-selector-image"
-    );
-
-    const label = document.createElement("span");
-
-    label.className = "flower-name";
-    label.textContent = flower.name;
-
-
-    button.appendChild(image);
-    button.appendChild(label);
-
-    button.addEventListener("click", () => {
-      selectFlower(index);
-    });
-
-    flowerOrbit.appendChild(button);
-
-  });
-
-}
-
-
-/* =========================================
-   SPREAD FLOWERS INTO A CIRCLE
-========================================= */
-
-function spreadFlowers() {
-
-  const buttons = [
-    ...flowerOrbit.querySelectorAll(".flower-choice")
-  ];
-
-  const orbit = flowerOrbit.getBoundingClientRect();
-
-  const isSmall = window.matchMedia(
-    "(max-width: 650px)"
-  ).matches;
-
-
-  const radiusX = Math.min(
-    orbit.width * (isSmall ? 0.36 : 0.38),
-    isSmall ? 145 : 260
-  );
-
-  const radiusY = Math.min(
-    orbit.height * (isSmall ? 0.32 : 0.36),
-    isSmall ? 150 : 220
-  );
-
-
-  buttons.forEach((button, index) => {
-
-    const angle =
-      (-Math.PI / 2) +
-      (index / buttons.length) * Math.PI * 2;
-
-
-    const x =
-      orbit.width / 2 +
-      Math.cos(angle) * radiusX;
-
-    const y =
-      orbit.height / 2 +
-      Math.sin(angle) * radiusY;
-
-
-    button.style.left = `${x}px`;
-    button.style.top = `${y}px`;
-
-
-    requestAnimationFrame(() => {
-
-      button.classList.add("is-spread");
-
-    });
-
-  });
-
-}
-
-
-/* =========================================
-   OPEN FLOWER SELECTOR
-========================================= */
-
-function openSelector() {
-
-  setView("selector");
-
-  // Wait for the selector to become visible before
-  // calculating where the flowers should spread.
-
-  requestAnimationFrame(() => {
-
-    requestAnimationFrame(() => {
-
-      spreadFlowers();
-
-    });
-
-  });
-
-}
-
-
-/* =========================================
-   RETURN TO ORIGINAL BOUQUET
-========================================= */
-
-function returnToBouquet() {
-
-  setView("bouquet");
-
-  document.body.style.background = "var(--paper)";
-
-}
-
-
-/* =========================================
-   OPEN AN INDIVIDUAL FLOWER PAGE
-========================================= */
-
-function selectFlower(index) {
-
-  const flower = flowerData[index];
-
-
-  // Change the background to match the flower.
-
-  document.body.style.background = flower.background;
-
-
-  // Show the selected flower illustration.
-
-  sectionFlowerArt.src = flower.image;
-
-  sectionFlowerArt.alt = flower.name;
-
-
-  // Update the portfolio heading and description.
-
-  sectionEyebrow.textContent = flower.eyebrow;
-
-  sectionTitle.textContent = flower.title;
-
-  sectionDescription.textContent = flower.description;
-
-
-  // Clear the previous portfolio cards.
-
-  portfolioGrid.innerHTML = "";
-
-
-  // Build the selected flower's portfolio cards.
-
-  flower.cards.forEach((card, cardIndex) => {
-
-    const article = document.createElement("article");
-
-    article.className = "portfolio-card";
-
-
-    const kicker = document.createElement("span");
-
-    kicker.className = "card-kicker";
-
-    kicker.textContent =
-      `0${cardIndex + 1} / ${flower.name}`;
-
-
-    const heading = document.createElement("h3");
-
-    heading.textContent = card[0];
-
-
-    const paragraph = document.createElement("p");
-
-    paragraph.textContent = card[1];
-
-
-    article.appendChild(kicker);
-    article.appendChild(heading);
-    article.appendChild(paragraph);
-
-
-    portfolioGrid.appendChild(article);
-
-  });
-
-
-  // Show the portfolio page.
-
-  setView("portfolio");
-
-}
-
-
-/* =========================================
-   CLICK EVENTS
-========================================= */
-
-// Click the original vase.
-
-document.querySelector("#openBouquet")
-  .addEventListener("click", openSelector);
-
-
-// Click the empty vase in the center.
-
-document.querySelector("#backToBouquet")
-  .addEventListener("click", returnToBouquet);
-
-
-// Click the selected flower and vase.
-
-document.querySelector("#sectionVase")
-  .addEventListener("click", openSelector);
-
-
-/* =========================================
-   RESIZE HANDLING
-========================================= */
-
-window.addEventListener("resize", () => {
-
-  if (currentView !== "selector") return;
-
-  clearTimeout(resizeTimer);
-
-  resizeTimer = setTimeout(() => {
-
-    spreadFlowers();
-
-  }, 100);
-
-});
-
-
-/* =========================================
-   INITIALIZE WEBSITE
-========================================= */
-
-buildBouquet();
-
-buildSelector();
