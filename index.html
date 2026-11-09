@@ -1,38 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mia Pinto's Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f3ea">
+
+  <title>A Portfolio in Bloom</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=JetBrains+Mono:wght@500&family=Saira:wght@800&display=swap">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
 
-  <!-- The drawing: behind everything, the whole page -->
-  <canvas class="pad" id="pad" aria-hidden="true"></canvas>
-  <i class="tip" id="tip" aria-hidden="true"></i>
+<body data-view="bouquet">
 
-  <!-- The page. Its words and buttons sit on top: they can't be drawn on, and lines go behind them. -->
-  <main class="content">
-    <p class="label">Draw pen</p>
-    <h1 id="title">Mia Pinto's Portfolio<br>Welcome.</h1>
-    <p class="lead">Draw anywhere on the page with the mouse, a finger or a pen. Your lines go behind the words and buttons, and the buttons still work.</p>
-    <div class="tools" role="group" aria-label="Pen colour">
-      <button class="swatch swatch--rainbow" type="button" data-ink="rainbow" aria-pressed="true" aria-label="Rainbow"></button>
-      <button class="swatch" type="button" data-ink="#13111a" aria-pressed="false" aria-label="Ink" style="--ink: #13111a"></button>
-      <button class="swatch" type="button" data-ink="#e0206a" aria-pressed="false" aria-label="Pink" style="--ink: #e0206a"></button>
-      <button class="swatch" type="button" data-ink="#2b4bff" aria-pressed="false" aria-label="Blue" style="--ink: #2b4bff"></button>
-      <button class="swatch" type="button" data-ink="#00967f" aria-pressed="false" aria-label="Mint" style="--ink: #00967f"></button>
-      <button class="clear" id="clear" type="button">Clear</button>
+<main class="site-shell">
+
+  <!-- =================================
+       OPENING BOUQUET
+  ================================== -->
+
+  <section class="view bouquet-view is-active"
+           id="bouquetView"
+           aria-label="Welcome">
+
+    <p class="top-note">A portfolio in bloom</p>
+
+    <div class="intro-copy">
+      <p class="eyebrow">A little bit of everything</p>
+
+      <h1>
+        Welcome to<br>
+        <em>my garden.</em>
+      </h1>
+
+      <p class="intro-subtitle">
+        A collection of things I've made, learned, and loved.
+      </p>
     </div>
-  </main>
 
-  <!-- 1. GSAP from the CDN  2. your widget script -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-  <script src="script.js"></script>
+    <div class="bouquet-scene" id="bouquetScene">
+
+      <!-- JavaScript places all five flowers here -->
+
+      <div class="bouquet-flowers"
+           id="bouquetFlowers"
+           aria-hidden="true">
+      </div>
+
+      <!-- Click the vase to open the flower selector -->
+
+      <button class="vase-button main-vase"
+              id="openBouquet"
+              type="button"
+              aria-label="Open the bouquet and explore">
+
+        <img src="images/vase.png"
+             alt=""
+             class="vase-image">
+
+        <span class="vase-hint">click to explore</span>
+
+      </button>
+
+    </div>
+
+    <p class="bottom-note">Made of many little things.</p>
+
+  </section>
+
+
+  <!-- =================================
+       FLOWER SELECTION
+  ================================== -->
+
+  <section class="view selector-view"
+           id="selectorView"
+           aria-label="Choose a flower"
+           aria-hidden="true">
+
+    <div class="selector-heading">
+
+      <p class="eyebrow">Choose your direction</p>
+
+      <h2>
+        Where should we <em>grow?</em>
+      </h2>
+
+      <p>
+        Pick a flower to explore a different part of my portfolio.
+      </p>
+
+    </div>
+
+    <div class="flower-orbit" id="flowerOrbit">
+
+      <!-- Click this empty vase to return to the original bouquet -->
+
+      <button class="vase-button empty-vase"
+              id="backToBouquet"
+              type="button"
+              aria-label="Return to the full bouquet">
+
+        <img src="images/vase.png"
+             alt=""
+             class="vase-image">
+
+        <span class="vase-hint">back to bouquet</span>
+
+      </button>
+
+      <!-- JavaScript adds the five clickable flowers here -->
+
+    </div>
+
+    <p class="bottom-note">
+      The vase brings everything back together.
+    </p>
+
+  </section>
+
+
+  <!-- =================================
+       INDIVIDUAL PORTFOLIO SECTION
+  ================================== -->
+
+  <section class="view portfolio-view"
+           id="portfolioView"
+           aria-label="Portfolio section"
+           aria-hidden="true">
+
+    <!-- Click the selected flower and vase to return to selection -->
+
+    <button class="section-bouquet"
+            id="sectionVase"
+            type="button"
+            aria-label="Return to flower selection">
+
+      <img class="section-flower-art"
+           id="sectionFlowerArt"
+           src=""
+           alt="">
+
+      <img class="section-vase-art"
+           src="images/vase.png"
+           alt="">
+
+      <span class="vase-hint">back to flowers</span>
+
+    </button>
+
+
+    <div class="portfolio-content">
+
+      <header class="portfolio-header">
+
+        <p class="eyebrow" id="sectionEyebrow">
+          A new part of the garden
+        </p>
+
+        <h2 id="sectionTitle">
+          A little about me
+        </h2>
+
+        <p class="section-description"
+           id="sectionDescription">
+        </p>
+
+      </header>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+      </div>
+
+    </div>
+
+    <p class="bottom-note">
+      Click the vase to choose another flower.
+    </p>
+
+  </section>
+
+</main>
+
 </body>
 </html>
 
