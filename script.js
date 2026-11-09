@@ -571,3 +571,4 @@ window.addEventListener("resize", () => {
 buildBouquet();
 
 buildSelector();
+
