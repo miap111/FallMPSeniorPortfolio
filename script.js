@@ -1,17 +1,17 @@
-/* =========================================
+/* 
    IMAGE FILES
    EDIT THIS SECTION TO USE YOUR OWN ART
-========================================= */
+ */
 
 const imageFiles = {
   vase: "images/vase.png",
 
   flowers: {
-    about: "images/daisy.png",
-    projects: "images/rose.png",
+    about: "images/lily.png",
+    projects: "images/peony.png",
     experience: "images/tulip.png",
-    achievements: "images/sunflower.png",
-    creative: "images/poppy.png"
+    achievements: "images/daisy.png",
+    creative: "images/hyacinth.png"
   }
 };
 
