@@ -16,6 +16,8 @@ const imageFiles = {
 };
 
 
+
+
 /* =========================================
    PORTFOLIO FLOWER INFORMATION
 ========================================= */
@@ -36,21 +38,20 @@ const flowerData = [
 
     cards: [
       [
-        "A quick flick:",
-        "A little context about who I am, where I come from, and what I enjoy creating."
-       /* src="miapic.jpg" */
+        "A quick pic!",
+        "A little context about who I am...<br><img src='images/miaflick.jpg' alt='Photo of Mia' class='card-photo'><br>My favorite pastime is winning! 🥇"
       ],
       [
-        "Curiosity cabinet",
-        "The subjects, ideas, and unexpected things that tend to catch my attention."
+        "Favorite Questions:",
+        "1. Why are unicorns depicted as fully white or sporting a rainbow coat?<br><br>2. What schools actually offer ancient underwater basket-weaving in Tibet?<br><br>3. Why do the sun and the moon compete for a spot in the sky, and why do they sometimes share a spot?<br><br>4. Is the saying '\"It's a doggy dog world.\"' or '\"It's a dog eats dog world\"'?"
       ],
       [
-        "Outside the screen",
-        "A place for the activities, communities, and experiences that shape my perspective."
+        "Behind the grapevine",
+        "I'm a web developer and aspiring creative technologist with a passion for building interactive, visually engaging digital experiences. I love coding now, but there was a time where I hateddd it. I quickly realized that it was something I was talented at and with hard work, it ended up opening doors I didn't foresee in my future."
       ],
       [
-        "What I'm growing toward",
-        "The things I hope to explore, learn, and make next."
+        "Future Goals & Academic Focus",
+        "My dream job title is Creative Director! To make this possible, I plan to study <strong>Marketing & Advertising</strong>, <strong>Business Management</strong>, and <strong>Communications</strong>—combining code, branding, and visual storytelling.<br><br><strong>Academics:</strong> 92.6 Cumulative GPA • Honor Roll every marking period (9th–11th) • AP Spanish & NYS Seal of Biliteracy • College Now: Business Organization & Management."
       ]
     ]
   },
@@ -58,33 +59,32 @@ const flowerData = [
 
   {
     id: "projects",
-    name: "Rose",
+    name: "Peony",
     image: imageFiles.flowers.projects,
 
-    background: "#f4e5e1",
+    background: "#4a2833",
 
-    eyebrow: "Ideas made tangible",
-    title: "Things I've created",
+    title: "Winning Projects & Designs",
 
     description:
-      "A collection of experiments, designs, websites, and other projects, from the first idea to the finished result.",
+      "Citywide competition winners, hackathon projects, and interactive design prototypes.",
 
     cards: [
       [
-        "Web and digital design",
-        "Website concepts, layouts, and digital experiences built around both function and visual identity."
+        "1st Place – NYC Citywide Graphic Arts Competition (11th Grade)",
+        "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FJdQUdL0gArUvdrR2ug5SDz%2FCityTechComp26%3Fnode-id%3D6-19%26starting-point-node-id%3D6%253A19' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
       ],
       [
-        "Creative experiments",
-        "Small tests, visual explorations, and ideas that became something more."
+        "VouchMatch – Mott Million Dollar Business Idea Challenge ($250 First Round Winner)",
+        "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fcdr7DXTtiANLTly5hr0rlD%2FUntitled%3Fnode-id%3D1-2%26starting-point-node-id%3D1%253A2' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
       ],
       [
-        "The process",
-        "Research, drafts, revisions, and the decisions that helped each project take shape."
+        "1st Place (Team) – STEM In The South EXPO Hackathon (Seeds Against Hunger)",
+        "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FFnULqpW1MZ2fZ0tMLeWKDz%2FHackathon-2026%3Fnode-id%3D3-2%26starting-point-node-id%3D3%253A2' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
       ],
       [
-        "Selected work",
-        "A space for project images, links, and short explanations of the finished pieces."
+        "3rd Place – NYC Citywide Graphic Arts Competition (10th Grade)",
+        "<iframe src='https://miap111.github.io/CityTech_Comp/' style='width:100%; height:320px; border:none; border-radius:8px;' title='10th Grade CityTech Comp'></iframe><br><!-- Add your description here -->"
       ]
     ]
   },
@@ -95,30 +95,29 @@ const flowerData = [
     name: "Tulip",
     image: imageFiles.flowers.experience,
 
-    background: "#f5eedf",
+    background: "#332940",
 
-    eyebrow: "Places I've learned and contributed",
-    title: "My experience",
+    title: "Experience & Leadership",
 
     description:
-      "A look at the roles, collaborations, and opportunities that have helped me develop new skills and perspectives.",
+      "Paid media internships, editorial leadership, and community service.",
 
     cards: [
       [
-        "Work and internships",
-        "A timeline of professional experiences, responsibilities, and what I took away from them."
+        "Paid Media & Journalism Internships",
+        "<strong>The Paley Center for Media x Hearst Summer Intern</strong> — Selected out of ~600 applicants (1 of 12 first-year interns). Researched, wrote, directed, produced, and acted in a podcast episode.<br><br><strong>CityLimits Journalism Intern (CUNY Graduate School of Journalism)</strong> — Co-authored and published a news article while building reporting and interviewing skills."
       ],
       [
-        "School and leadership",
-        "Clubs, teams, publications, and the communities I've helped build."
+        "Literary Magazine — Editor-in-Chief",
+        "Served as Assistant Editor (11th) and <strong>Editor-in-Chief</strong> (12th). Designed, coded, and maintain the magazine's official website, organized the annual Poetry Slam (performing original work), and co-led <em>Down the Rabbit Hole</em> publishing workshops."
       ],
       [
-        "Collaboration",
-        "The people I've worked with and the projects that were better because we made them together."
+        "School Leadership & Mentorship",
+        "<strong>BrainPower Student Leadership Initiative</strong> (1 of 19 selected) — Co-organized a community drive providing food, school supplies, and essentials to local families.<br><br>Also serve on the <strong>Student Input Committee</strong>, as a <strong>Peer Group Connection Mentor</strong>, and Freshman Orientation leader."
       ],
       [
-        "Skills in practice",
-        "Examples of how I've used communication, design, technology, and creative problem-solving."
+        "Athletics, Arts & 200+ Service Hours",
+        "<strong>National Honor Society</strong> member with <strong>200+ community service hours</strong>.<br><br><strong>Cheer Captain & Cheerleader</strong> • <strong>Tennis Team Manager</strong> • <strong>Graphic Arts Club</strong> • <strong>Culinary Arts Volunteer</strong> assisting students with disabilities in building independent living and workplace skills."
       ]
     ]
   },
@@ -126,33 +125,32 @@ const flowerData = [
 
   {
     id: "achievements",
-    name: "Sunflower",
+    name: "Daisy",
     image: imageFiles.flowers.achievements,
 
-    background: "#f5efd9",
+    background: "#383622",
 
-    eyebrow: "Milestones along the way",
-    title: "Things I've accomplished",
+    title: "Awards & Certifications",
 
     description:
-      "A growing collection of recognitions, milestones, and moments that mark progress along the way.",
+      "National computing recognition, hackathon honors, and verified technical credentials.",
 
     cards: [
       [
-        "Awards and recognition",
-        "Selected competitions, honors, and achievements worth highlighting."
+        "Computing & Hackathon Honors",
+        "💻 <strong>NCWIT Aspirations in Computing (2026)</strong> – Affiliate Honorable Mention (Greater NYC & Hudson Valley)<br><br>🏆 <strong>Urban Arts Hackathon (Team: codeher)</strong> – Winner of Best Overall, Crowd Favorite, and Best Pitch!"
       ],
       [
-        "Certifications",
-        "Credentials and technical skills I've worked toward and earned."
+        "Verified Technical Certifications",
+        "<div style='display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:center; margin-bottom:10px;'><a href='https://www.credly.com/badges/c8e5d185-5d79-499a-8dc5-c7bd8302a450/public_url' target='_blank' title='Verify HTML and CSS Certification'><img src='images/html-badge.png' alt='Certiport IT Specialist HTML and CSS Badge' style='width:105px; height:auto; border-radius:8px;'></a><a href='https://www.credly.com/badges/6ea81f31-4031-42e0-949d-4f078d358a01/public_url' target='_blank' title='Verify Python Certification'><img src='images/python-badge.png' alt='Certiport IT Specialist Python Badge' style='width:105px; height:auto; border-radius:8px;'></a></div>Click a badge above to verify my <strong>Certiport HTML & CSS</strong> and <strong>Certiport Python</strong> certifications on Credly ↗"
       ],
       [
-        "Academic milestones",
-        "Coursework, programs, and learning experiences that have challenged me."
+        "Academic Distinctions",
+        "<strong>92.6 Cumulative GPA</strong> with Honor Roll every marking period (9th–11th Grade).<br><br><strong>New York State Seal of Biliteracy (Spanish)</strong> & AP Spanish • Completed college-level <em>Business Organization & Management</em>."
       ],
       [
-        "Community contributions",
-        "Volunteer work and ways I've contributed time, ideas, and effort."
+        "Community Contributions",
+        "Dedicated to giving back through school leadership, food drives, and mentoring peers in technology and the arts."
       ]
     ]
   },
@@ -160,33 +158,32 @@ const flowerData = [
 
   {
     id: "creative",
-    name: "Poppy",
+    name: "Hyacinth",
     image: imageFiles.flowers.creative,
 
-    background: "#f4e8ef",
+    background: "#4a2f24",
 
-    eyebrow: "A place for the in-between",
-    title: "My creative side",
+    title: "Creative Experiments & Prototypes",
 
     description:
-      "Not everything fits into a neat category. This space is for visual ideas, writing, inspiration, and the things I make just to see where they go.",
+      "Hackathon projects, app concepts, viral social media growth, and creative explorations.",
 
     cards: [
       [
-        "Visual inspiration",
-        "Color, typography, illustration, and the images that spark new directions."
+        "CodeHer Hackathon Project (Urban Arts)",
+        "<iframe src='https://sable-broad-27483700.figma.site/' style='width:100%; height:320px; border:none; border-radius:8px;' title='CodeHer Hackathon Project'></iframe><br><!-- Add your description here -->"
       ],
       [
-        "Words and stories",
-        "Writing, storytelling, and experiments with different ways to communicate."
+        "Infosys WTC Trip – Team 'Talking Clean' (Gameplay)",
+        "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fvhua9J6kw2Pa7k6Z1cNDvO%2FGameplay%3Fcontent-scaling%3Dfixed%26kind%3Dproto%26node-id%3D175-6%26page-id%3D175%253A5%26scaling%3Dscale-down%26starting-point-node-id%3D175%253A6' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
       ],
       [
-        "Moodboards and concepts",
-        "Early ideas and visual directions that might turn into something bigger."
+        "Congressional App Challenge – PantryPal",
+        "<iframe src='https://hefty-flame-75223969.figma.site' style='width:100%; height:320px; border:none; border-radius:8px;' title='PantryPal App'></iframe><br><!-- Add your description here -->"
       ],
       [
-        "Just because",
-        "Personal experiments and creative detours that deserve a place of their own."
+        "Viral Content & Social Media",
+        "<strong>TikTok Creator:</strong> Built an NYC-life humor page reaching <strong>382K views</strong> and <strong>51.9K likes</strong> in a single month.<br><br><strong>Pinterest Creator:</strong> Scaled an account to <strong>324,000+ monthly views</strong> through visual curation and digital marketing.<br><br><strong>Library Instagram:</strong> Founded the school's official library account, growing it to <strong>50K+ views</strong> across nine videos in three months."
       ]
     ]
   }
@@ -466,7 +463,9 @@ function selectFlower(index) {
 
   // Update the portfolio heading and description.
 
-  sectionEyebrow.textContent = flower.eyebrow;
+  if (sectionEyebrow) {
+    sectionEyebrow.textContent = flower.eyebrow || "";
+  }
 
   sectionTitle.textContent = flower.title;
 
@@ -502,8 +501,7 @@ function selectFlower(index) {
 
     const paragraph = document.createElement("p");
 
-    paragraph.textContent = card[1];
-
+    paragraph.innerHTML = card[1];
 
     article.appendChild(kicker);
     article.appendChild(heading);
