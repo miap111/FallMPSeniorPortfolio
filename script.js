@@ -24,21 +24,21 @@ const flowerData = [
 
   {
     id: "about",
-    name: "Daisy",
+    name: "Lily",
     image: imageFiles.flowers.about,
 
-    background: "#f6e9e4",
+    background: "#2a4e4c",
 
-    eyebrow: "The person behind the work",
-    title: "A little about me",
+    title: "A little about Mia:",
 
     description:
-      "A starting point for the story behind this portfolio: the interests, experiences, and little details that make up who I am.",
+      "I love building stuff, making art, I'm grumpy, and I like to read. Obviously, I love to code!",
 
     cards: [
       [
-        "A quick introduction",
+        "A quick flick:",
         "A little context about who I am, where I come from, and what I enjoy creating."
+       /* src="miapic.jpg" */
       ],
       [
         "Curiosity cabinet",

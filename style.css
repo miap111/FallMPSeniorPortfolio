@@ -3,11 +3,11 @@
  */
 
 :root {
-  --paper: #f7f3ea;
-  --ink: #373b32;
+  --paper: #222222;
+  --ink: #ffffff;
   --muted: #77786d;
 
-  --vase: #dba69a;
+  --vase: #222222;
   --vase-line: #a9786c;
 
   font-family: "DM Sans", sans-serif;
@@ -126,7 +126,7 @@ h3 {
 
 .intro-copy h1 em,
 .selector-heading h2 em {
-  color: #b8756e;
+  color: #ffffff;
   font-weight: 500;
 }
 
