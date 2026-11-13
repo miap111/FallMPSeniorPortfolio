@@ -702,4 +702,12 @@ h3 {
     padding: 21px;
   }
 }
-
+.card-photo {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 12px auto;
+  object-fit: cover;
+}

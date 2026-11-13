@@ -64,12 +64,20 @@ const flowerData = [
 
     background: "#4a2833",
 
-    title: "Winning Projects & Designs",
+    title: "Winning Projects & Code",
 
     description:
-      "Citywide competition winners, hackathon projects, and interactive design prototypes.",
+      "Hackathon winners, citywide competition triumphs, and top-tier interactive designs.",
 
     cards: [
+      [
+        "OnePortal – Urban Arts Hackathon (Team: CodeHer)",
+        "<iframe src='https://sable-broad-27483700.figma.site/' style='width:100%; height:320px; border:none; border-radius:8px;' title='OnePortal Hackathon Project'></iframe><br><!-- Add your description here -->"
+      ],
+      [
+        "1st Place (Team) – STEM In The South EXPO Hackathon (Seeds Against Hunger)",
+        "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FFnULqpW1MZ2fZ0tMLeWKDz%2FHackathon-2026%3Fnode-id%3D3-2%26starting-point-node-id%3D3%253A2' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
+      ],
       [
         "1st Place – NYC Citywide Graphic Arts Competition (11th Grade)",
         "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FJdQUdL0gArUvdrR2ug5SDz%2FCityTechComp26%3Fnode-id%3D6-19%26starting-point-node-id%3D6%253A19' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
@@ -77,14 +85,6 @@ const flowerData = [
       [
         "VouchMatch – Mott Million Dollar Business Idea Challenge ($250 First Round Winner)",
         "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fcdr7DXTtiANLTly5hr0rlD%2FUntitled%3Fnode-id%3D1-2%26starting-point-node-id%3D1%253A2' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
-      ],
-      [
-        "1st Place (Team) – STEM In The South EXPO Hackathon (Seeds Against Hunger)",
-        "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FFnULqpW1MZ2fZ0tMLeWKDz%2FHackathon-2026%3Fnode-id%3D3-2%26starting-point-node-id%3D3%253A2' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
-      ],
-      [
-        "3rd Place – NYC Citywide Graphic Arts Competition (10th Grade)",
-        "<iframe src='https://miap111.github.io/CityTech_Comp/' style='width:100%; height:320px; border:none; border-radius:8px;' title='10th Grade CityTech Comp'></iframe><br><!-- Add your description here -->"
       ]
     ]
   },
@@ -138,7 +138,7 @@ const flowerData = [
     cards: [
       [
         "Computing & Hackathon Honors",
-        "💻 <strong>NCWIT Aspirations in Computing (2026)</strong> – Affiliate Honorable Mention (Greater NYC & Hudson Valley)<br><br>🏆 <strong>Urban Arts Hackathon (Team: codeher)</strong> – Winner of Best Overall, Crowd Favorite, and Best Pitch!"
+        "🏆 <strong>Urban Arts Hackathon (Team: CodeHer)</strong> – Winner of Best Overall, Crowd Favorite, and Best Pitch for <strong>OnePortal</strong><br><br>🥇 <strong>STEM In The South EXPO Hackathon</strong> – 1st Place Team Win (11th Grade)<br><br>💻 <strong>NCWIT Aspirations in Computing (2026)</strong> – Affiliate Honorable Mention (Greater NYC & Hudson Valley)"
       ],
       [
         "Verified Technical Certifications",
@@ -166,20 +166,20 @@ const flowerData = [
     title: "Creative Experiments & Prototypes",
 
     description:
-      "Hackathon projects, app concepts, viral social media growth, and creative explorations.",
+      "App prototypes, collaborative projects, and viral social media growth.",
 
     cards: [
       [
-        "CodeHer Hackathon Project (Urban Arts)",
-        "<iframe src='https://sable-broad-27483700.figma.site/' style='width:100%; height:320px; border:none; border-radius:8px;' title='CodeHer Hackathon Project'></iframe><br><!-- Add your description here -->"
+        "Congressional App Challenge – PantryPal",
+        "<iframe src='https://hefty-flame-75223969.figma.site' style='width:100%; height:320px; border:none; border-radius:8px;' title='PantryPal App'></iframe><br><!-- Add your description here -->"
       ],
       [
         "Infosys WTC Trip – Team 'Talking Clean' (Gameplay)",
         "<iframe src='https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fvhua9J6kw2Pa7k6Z1cNDvO%2FGameplay%3Fcontent-scaling%3Dfixed%26kind%3Dproto%26node-id%3D175-6%26page-id%3D175%253A5%26scaling%3Dscale-down%26starting-point-node-id%3D175%253A6' style='width:100%; height:320px; border:none; border-radius:8px;' allowfullscreen></iframe><br><!-- Add your description here -->"
       ],
       [
-        "Congressional App Challenge – PantryPal",
-        "<iframe src='https://hefty-flame-75223969.figma.site' style='width:100%; height:320px; border:none; border-radius:8px;' title='PantryPal App'></iframe><br><!-- Add your description here -->"
+        "Evolution – 3rd Place NYC Citywide Graphic Arts Competition (10th Grade)",
+        "<iframe src='https://miap111.github.io/CityTech_Comp/' style='width:100%; height:320px; border:none; border-radius:8px;' title='10th Grade CityTech Comp'></iframe><br><!-- Add your description here -->"
       ],
       [
         "Viral Content & Social Media",
